@@ -18,7 +18,7 @@ double count2 = k2 - k1;
 double x = count1 / count2;
 double y = k2 * x + b2;
 
-Console.Write($"{x}; {y}");
+Console.Write($"({x}; {y})");
 
 int ReadInt(string message)
 {
