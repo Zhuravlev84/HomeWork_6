@@ -2,7 +2,7 @@
 0, 7, 8, -2, -2 -> 2
 1, -7, 567, 89, 223-> 3*/
 
-Console.Write ("Введите числа через зяпятую: ");
+Console.Write("Введите числа через зяпятую: ");
 string stringNumber = Console.ReadLine();
 char simbol = ',';
 char simbol2 = '-';
@@ -12,7 +12,6 @@ int simbolComma = -1;
 int simbolNull = 0;
 for (int i = 0; i < stringNumber.Length; i++)
 {
-
     if (stringNumber[i] != simbol)
     {
         string digit = Convert.ToString(stringNumber[i]);
@@ -25,8 +24,6 @@ for (int i = 0; i < stringNumber.Length; i++)
         {
             simbolMinus++;
         }
-
-
     }
 }
 Console.WriteLine($"{stringNumber} --> {stringNumber.Length - simbolMinus - simbolComma - simbolNull}");
