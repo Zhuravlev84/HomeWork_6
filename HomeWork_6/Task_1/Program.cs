@@ -4,26 +4,45 @@
 
 Console.Write("Введите числа через зяпятую: ");
 string stringNumber = Console.ReadLine();
-char simbol = ',';
-char simbol2 = '-';
-char simbol3 = '0';
-int simbolMinus = 0;
-int simbolComma = -1;
-int simbolNull = 0;
+char simbolComma = ',';
+int numbersCount = 1;
+
 for (int i = 0; i < stringNumber.Length; i++)
 {
-    if (stringNumber[i] != simbol)
+    if (stringNumber[i] == simbolComma)
+        numbersCount++;
+}
+
+int[] numbers = new int[numbersCount];
+int numberIndex = 0;
+string subString = "";
+for (int i = 0; i < stringNumber.Length; i++)
+{
+    if (stringNumber[i] == simbolComma)
     {
-        string digit = Convert.ToString(stringNumber[i]);
-        simbolComma++;
-        if (stringNumber[i] == simbol3)
-        {
-            simbolNull++;
-        }
-        if (stringNumber[i] == simbol2)
-        {
-            simbolMinus++;
-        }
+        numbers[numberIndex] = Convert.ToInt32(subString);
+        subString = "";
+        numberIndex++;
+    }
+    else
+    {
+        subString = subString + stringNumber[i];
     }
 }
-Console.WriteLine($"{stringNumber} --> {stringNumber.Length - simbolMinus - simbolComma - simbolNull}");
+numbers[numberIndex] = Convert.ToInt32(subString);
+int count = 0;
+for (int i = 0; i < numbers.Length; i++)
+{
+    if (numbers[i] > 0)
+        count++;
+}
+
+WriteArray(numbers);
+Console.Write($" --> {count}");
+void WriteArray(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write(array[i] + " ");
+    }
+}
